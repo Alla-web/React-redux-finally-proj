@@ -40,12 +40,16 @@ function Home() {
   })
 
   // Забираем значение каунтера из store
-  let cityWeatcherData = useAppSelector(cityWeatherSelectors.cityWeatherData);
-  console.log(cityWeatcherData); 
+  const {cityWeatherData, error, status} = useAppSelector(cityWeatherSelectors.cityWeatherData);
+  console.log(cityWeatherData); 
 
-  const weatherInfo = cityWeatherData.length > 1 ? cityWeatherData[cityWeatherData.length] : null;
+  const lastCityWeatherData = cityWeatherData[cityWeatherData.length - 1];
+  console.log(lastCityWeatherData);
 
-  }
+  const city = lastCityWeatherData.name
+ 
+  
+
 
   return (
     <HomeContainer>
