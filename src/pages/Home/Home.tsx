@@ -34,22 +34,21 @@ function Home() {
     } as weatherFormFildsTypes,
     validationSchema,
     validateOnChange: false,
-    onSubmit: values => {   
+    onSubmit: values => {
       dispatch(cityWeatherActions.getCityWeather(values.city))
     },
   })
 
   // Забираем значение каунтера из store
-  const {cityWeatherData, error, status} = useAppSelector(cityWeatherSelectors.cityWeatherData);
-  console.log(cityWeatherData); 
+  const { cityWeatherData, error, status } = useAppSelector(
+    cityWeatherSelectors.cityWeatherData,
+  )
 
-  const lastCityWeatherData = cityWeatherData[cityWeatherData.length - 1];
-  console.log(lastCityWeatherData);
+  const lastCityWeatherData = cityWeatherData[cityWeatherData.length - 1]
+  console.log("DATA", lastCityWeatherData)
 
-  const city = lastCityWeatherData.name
- 
-  
-
+  const cityName = lastCityWeatherData.name
+  console.log(cityName)
 
   return (
     <HomeContainer>
@@ -67,11 +66,11 @@ function Home() {
           <Button name="Serch" type="submit" />
         </ButtonContainer>
       </InputButtonContainer>
-      <ResultsBox 
-      // city={cityWeatcherData.cityWeatherData.c} 
-      // temperature={} 
-      // imgSrc={} 
-      // errorMessage={} 
+      <ResultsBox
+      // city={lastCityWeatherData.name}
+      // temperature={}
+      // imgSrc={}
+      // errorMessage={}
       />
     </HomeContainer>
   )

@@ -22,12 +22,12 @@ export const CityWeatherSlice = createAppSlice({
 
           const result = await axios.get(cityWeatherUrl)
           // В случае успешного завершения запроса, возвращаются полученные данные для того, чтобы
-          // получить их в обработчике fulfilled (т.к. только редьюсеры имеют право изменять state)
+          // получить их в обработчике fulfilled (т.к. только редьюсеры имеют право изменять state)          
           return result.data
         } catch (error) {
           // В случае ошибка её нужно отправлять в обработчик rejected с помощью метода rejectWithValue()
           return thunkApi.rejectWithValue(error)
-        }
+        } 
       },
       {
         //Обрабатываем действия, которые должны происходить, когда произошла отправка запроса,
@@ -56,3 +56,5 @@ export const CityWeatherSlice = createAppSlice({
 
 export const cityWeatherActions = CityWeatherSlice.actions
 export const cityWeatherSelectors = CityWeatherSlice.selectors
+console.table(cityWeatherSelectors);
+
